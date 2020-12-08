@@ -1,4 +1,4 @@
-package com.delalama.imagesAPI.service;
+package com.delalama.imagesAPI.service.interf;
 
 import com.delalama.imagesAPI.model.Dto.ImageDto;
 

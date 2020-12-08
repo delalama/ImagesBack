@@ -1,17 +1,15 @@
 package com.delalama.imagesAPI.controller;
 
-import com.delalama.imagesAPI.service.ImageService;
+import com.delalama.imagesAPI.service.interf.ImageService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 
 @CrossOrigin
 @AllArgsConstructor
