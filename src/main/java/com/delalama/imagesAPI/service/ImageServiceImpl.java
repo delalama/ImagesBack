@@ -4,10 +4,12 @@ import com.delalama.imagesAPI.model.Dto.ImageDto;
 import com.delalama.imagesAPI.model.persistence.Image;
 import com.delalama.imagesAPI.repository.ImageRepository.ImageRepository;
 import com.delalama.imagesAPI.service.interf.ImageService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 
+@AllArgsConstructor
 @Service
 public class ImageServiceImpl implements ImageService {
 

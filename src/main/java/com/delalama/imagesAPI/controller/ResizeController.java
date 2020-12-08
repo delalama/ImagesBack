@@ -1,6 +1,6 @@
 package com.delalama.imagesAPI.controller;
 
-import com.delalama.imagesAPI.service.interf.RotationService;
+import com.delalama.imagesAPI.service.ResizeServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -13,17 +13,18 @@ import java.io.IOException;
 @AllArgsConstructor
 @RestController
 @Slf4j
-@RequestMapping(value = "rotation")
-public class RotationController {
-    RotationService rotationService;
+@RequestMapping(value = "resize")
+public class ResizeController {
+    ResizeServiceImpl resizeService;
 
     @ResponseBody
-    @GetMapping(value="rotate90" , produces = MediaType.IMAGE_JPEG_VALUE)
+    @GetMapping(produces = MediaType.IMAGE_JPEG_VALUE)
     public ResponseEntity<byte[]> getImage(
             @RequestParam String id,
-            @RequestParam String side) throws IOException {
-        log.info("Image Controller : getImage");
-        return new ResponseEntity<byte[]>(rotationService.rotate90(id, side), HttpStatus.OK);
+            @RequestParam int width,
+            @RequestParam int height) throws IOException {
+        log.info("Resize Controller : resize");
+        return new ResponseEntity<byte[]>(resizeService.resize(id, width, height), HttpStatus.OK);
     }
 
 }

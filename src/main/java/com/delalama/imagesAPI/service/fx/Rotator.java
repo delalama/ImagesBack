@@ -3,14 +3,14 @@ package com.delalama.imagesAPI.service.fx;
 import org.imgscalr.Scalr;
 import org.springframework.stereotype.Component;
 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+import static com.delalama.imagesAPI.service.fx.ImageUtils.convertPreImageToBufferedImage;
+import static com.delalama.imagesAPI.service.fx.ImageUtils.toByteArray;
+
 @Component
-public class ImageEffect {
+public class Rotator {
 
     private Scalr scalr = new Scalr();
 
@@ -38,24 +38,5 @@ public class ImageEffect {
 
         return toByteArray(processedImg);
     }
-
-
-    private byte[] toByteArray(BufferedImage processedImg) throws IOException {
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ImageIO.write(processedImg, "jpg", bos );
-        return bos.toByteArray();
-    }
-
-    private BufferedImage convertPreImageToBufferedImage(byte[] preImage) {
-        ByteArrayInputStream imgInputStream = new ByteArrayInputStream(preImage);
-
-        try {
-            return ImageIO.read(imgInputStream);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
 
 }

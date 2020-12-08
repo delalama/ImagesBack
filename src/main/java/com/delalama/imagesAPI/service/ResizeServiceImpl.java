@@ -1,18 +1,19 @@
 package com.delalama.imagesAPI.service;
 
-import com.delalama.imagesAPI.service.fx.Rotator;
+import com.delalama.imagesAPI.service.fx.Resizer;
 import com.delalama.imagesAPI.service.interf.ImageService;
-import com.delalama.imagesAPI.service.interf.RotationService;
+import com.delalama.imagesAPI.service.interf.ResizeService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 
+import java.awt.*;
 import java.io.IOException;
 
 @AllArgsConstructor
 @Service
-public class RotationServiceImpl implements RotationService {
+public class ResizeServiceImpl implements ResizeService {
 
     @Autowired
     ConversionService conversionService;
@@ -21,9 +22,12 @@ public class RotationServiceImpl implements RotationService {
     ImageService imageService;
 
     @Autowired
-    private Rotator imageEffect ;
+    Resizer resizer;
 
-    public byte[] rotate90(String id, String side) throws IOException {
-        return imageEffect.rotate90(imageService.findById(id).getData(), side);
+    public byte[] resize(String id, int width, int height) throws IOException {
+
+        Dimension dimension = new Dimension(width, height);
+
+        return resizer.resize(imageService.findById(id).getData(), dimension);
     }
 }
