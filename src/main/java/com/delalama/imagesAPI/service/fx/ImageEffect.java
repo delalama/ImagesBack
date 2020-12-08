@@ -11,6 +11,9 @@ import java.io.IOException;
 
 @Component
 public class ImageEffect {
+
+    private Scalr scalr = new Scalr();
+
     public byte[] rotate90(byte[] preImage, String side) throws IOException {
         switch (side){
             case "LEFT": return rotateLeft(preImage);
@@ -21,20 +24,21 @@ public class ImageEffect {
 
     private byte[] rotateRight(byte[] preImage) throws IOException {
 
-        return applyRightRotation(preImage);
-    }
-
-
-
-    private byte[] applyRightRotation(byte[] preImage) throws IOException {
         BufferedImage img = convertPreImageToBufferedImage(preImage);
-
-        Scalr scalr = new Scalr();
 
         BufferedImage processedImg = scalr.rotate(img, Scalr.Rotation.CW_90);
 
         return toByteArray(processedImg);
     }
+
+    private byte[] rotateLeft(byte[] preImage) throws IOException {
+        BufferedImage img = convertPreImageToBufferedImage(preImage);
+
+        BufferedImage processedImg = scalr.rotate(img, Scalr.Rotation.CW_270);
+
+        return toByteArray(processedImg);
+    }
+
 
     private byte[] toByteArray(BufferedImage processedImg) throws IOException {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -53,7 +57,5 @@ public class ImageEffect {
 
     }
 
-    private byte[] rotateLeft(byte[] preImage) {
-        return null;
-    }
+
 }

@@ -25,11 +25,6 @@ public class RotationServiceImpl implements RotationService {
     private ImageEffect imageEffect ;
 
     public byte[] rotate90(String id, String side) throws IOException {
-        byte[] preImage = conversionService.convert(imageService.findById(id), ImageDto.class).getData();
-
-        byte[] effectedData = imageEffect.rotate90(preImage, side);
-
-        return effectedData;
-
+        return imageEffect.rotate90(imageService.findById(id).getData(), side);
     }
 }
