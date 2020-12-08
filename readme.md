@@ -11,3 +11,6 @@ It also can apply image effects and transformations.
 ## RIGHT_ROTATION
 ![](https://github.com/delalama/ImagesBack/blob/master/docu/rotationRight.png)
 
+## LEFT_ROTATION
+![](https://github.com/delalama/ImagesBack/blob/master/docu/rotationLeft.png)
+
