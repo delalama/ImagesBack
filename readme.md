@@ -7,3 +7,7 @@ It also can apply image effects and transformations.
 
 ## GET
 ![](https://github.com/delalama/ImagesBack/blob/master/docu/API%20get.png)
+
+## RIGHT_ROTATION
+![](https://github.com/delalama/ImagesBack/blob/master/docu/rotationRight.png)
+
