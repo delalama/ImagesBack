@@ -14,3 +14,6 @@ It also can apply image effects and transformations.
 ## LEFT_ROTATION
 ![](https://github.com/delalama/ImagesBack/blob/master/docu/rotationLeft.png)
 
+## RESIZE
+![](https://github.com/delalama/ImagesBack/blob/master/docu/resize.png)
+
